@@ -1,0 +1,105 @@
+[gd_scene load_steps=17 format=3 uid="uid://36e7pm7hcth1"]
+
+[ext_resource type="Script" path="res://flight_red_duck.gd" id="1_g4y7q"]
+[ext_resource type="Texture2D" uid="uid://b344fuanh0etk" path="res://assets/green duck/frame_0_delay-0.07s.png" id="2_nqn5p"]
+[ext_resource type="Texture2D" uid="uid://da4o74073sfy3" path="res://assets/red duck/frame_0_delay-0.07s.png" id="2_sm00d"]
+[ext_resource type="Texture2D" uid="uid://bwo1g02jhhap3" path="res://assets/red duck/frame_1_delay-0.07s.png" id="3_itnt0"]
+[ext_resource type="Texture2D" uid="uid://bl1ugfj4p13cm" path="res://assets/green duck/frame_1_delay-0.07s.png" id="3_l8j6v"]
+[ext_resource type="Texture2D" uid="uid://d0o3cma0yjf2q" path="res://assets/red duck/frame_2_delay-0.07s.png" id="4_si3pc"]
+[ext_resource type="Texture2D" uid="uid://pqum6qgteyqj" path="res://assets/green duck/frame_2_delay-0.07s.png" id="4_ylv1m"]
+[ext_resource type="Texture2D" uid="uid://bxjdcrkwuffqw" path="res://assets/green duck/frame_3_delay-0.07s.png" id="5_gpjvb"]
+[ext_resource type="Texture2D" uid="uid://4vqhh4ta5njq" path="res://assets/red duck/frame_3_delay-0.07s.png" id="5_herar"]
+[ext_resource type="Texture2D" uid="uid://c7e8mwh3gxruy" path="res://assets/red duck/dead_red_duck.png" id="6_4sdtn"]
+[ext_resource type="Texture2D" uid="uid://bgwopie1tu71c" path="res://assets/blue duck/frame_0_delay-0.07s.png" id="6_alysx"]
+[ext_resource type="Texture2D" uid="uid://bb6w42yt587e2" path="res://assets/blue duck/frame_1_delay-0.07s.png" id="7_3auqo"]
+[ext_resource type="Texture2D" uid="uid://db6had88tj3s8" path="res://assets/blue duck/frame_2_delay-0.07s.png" id="8_c5cau"]
+[ext_resource type="Texture2D" uid="uid://dmp1ofhmqxoaj" path="res://assets/blue duck/frame_3_delay-0.07s.png" id="9_rpu3v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mh2av"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_alysx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3auqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c5cau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rpu3v")
+}],
+"loop": true,
+"name": &"blue_duck",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_4sdtn")
+}],
+"loop": true,
+"name": &"dead_red_duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nqn5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l8j6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ylv1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gpjvb")
+}],
+"loop": true,
+"name": &"green_duck",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sm00d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_itnt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_si3pc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_herar")
+}],
+"loop": true,
+"name": &"red_duck",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_328yp"]
+size = Vector2(42, 38)
+
+[node name="red duck" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_g4y7q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_mh2av")
+animation = &"dead_red_duck"
+frame_progress = 0.633333
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_328yp")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
+offset_left = -21.0
+offset_top = 2.0
+offset_right = 18.0
+offset_bottom = 25.0
+horizontal_alignment = 1
+vertical_alignment = 1
